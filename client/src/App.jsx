@@ -14,19 +14,13 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<MainLayout/>}>
-          <Route index element={<Register/>}/>
-          <Route path='login' element={<Login/>}/>
-        </Route>
         
-        <Route path='/dashboard' element={<Dashboard/>}>
+        <Route path='/' element={<Dashboard/>}>
           <Route index element={<PostList/>}/>
-          <Route path='post/:id' element={<PostDetail/>}/>
         </Route>
          
         <Route path='/post' element={<Group/>}/>
-        <Route path='/dashboard/group/:id/update' element={<FormUpdate/>}/>
-        <Route path='/dashboard/post/:id/form' element={<RoomForm/>}/>
+        <Route path='/group/:id/update' element={<FormUpdate/>}/>
       </Routes>
     </>
   );

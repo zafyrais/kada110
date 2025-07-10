@@ -82,7 +82,8 @@ route.get('/api/group/:id',AsyncHandler(async(req,res) => {
     }
     res.json({
         name:search.name,
-        description: search.description
+        description: search.description,
+        addMember: search.addMember,
     });
 }))
 // update

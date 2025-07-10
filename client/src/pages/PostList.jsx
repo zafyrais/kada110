@@ -1,10 +1,11 @@
 import { Link,useNavigate } from "react-router-dom"
 import { useEffect,useState } from "react";
+import {useSelector} from 'react-redux'
 export default function PostList(){
     const navigate = useNavigate();
     const [arr,setArr] = useState([])
     //setiap run kita load this
-    
+    const count = useSelector(item => item.group.count)
     useEffect(() => {
     
         async function getData(){
@@ -29,7 +30,7 @@ export default function PostList(){
     function handleUpdate(e,val){
         e.stopPropagation();
         //navigate ke form update
-        navigate(`/dashboard/group/${val}/update`);
+        navigate(`/group/${val}/update`);
     }
       //fungsi update
     async function handleDelete(e,val){
@@ -60,10 +61,12 @@ export default function PostList(){
             <div className='show-list'>
                 {arr.map((item,index) => (
                     <div key={index} className='item-bx' 
-                    onClick={() => navigate(`/dashboard/post/${item._id}`)}>
-                        {item.name}
-                        <button onClick={(e) => {handleUpdate(e,item._id)}}>update</button>
-                        <button onClick={(e) => {handleDelete(e,item._id)}}>delete</button> 
+                    onClick={() => navigate(`/group/${item._id}`)}>
+                        <div><h1>{item.name}</h1></div>
+                        <div className="wrap-btn">
+                            <button onClick={(e) => {handleUpdate(e,item._id)}}>update</button>
+                            <button onClick={(e) => {handleDelete(e,item._id)}}>delete</button> 
+                        </div>
                     </div>
                 ))}
             </div>

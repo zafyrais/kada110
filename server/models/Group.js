@@ -12,7 +12,8 @@ const groupSchema = new Schema({
         type:String,
         require:true,
     },
-    members :  [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    newMember : String,
+    //members :  [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 },{
     timestamps:true,
 })

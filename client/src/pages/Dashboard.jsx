@@ -5,7 +5,7 @@ export default function Dashboard(){
         <>
             <div className='dashboard-cont'>
                 <div className='sidebar'>
-                  vdsassx
+                  <h1>Welcome to this website You can Create your own group study</h1>
                 </div>
                 <div>
                     <Outlet/>
