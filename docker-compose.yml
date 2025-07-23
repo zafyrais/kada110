@@ -1,0 +1,29 @@
+version: '3'
+services:
+  api:
+    build: ./server
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=myuser
+      - DB_PASS=mypassword
+
+  web:
+    build: ./client
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
